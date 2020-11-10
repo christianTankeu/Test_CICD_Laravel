@@ -4,8 +4,21 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Town extends Model
 {
-    use HasFactory;
+    use SoftDeletes, HasFactory;
+
+    protected $guarded = ['id'];
+    public $timestamps = null;
+    protected $dates = ['created_at'];
+
+    public function districts(){
+        return $this->hasMany('App\Models\District');
+    }
+
+    public function country(){
+        return $this->belongsTo('App\Models\Country');
+    }
 }
