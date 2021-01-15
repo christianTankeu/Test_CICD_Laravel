@@ -47,9 +47,9 @@ RUN curl -s http://getcomposer.org/installer | php && \
 
 
 # Server configs
-COPY ./docker/local.ini /usr/local/etc/php/local.ini
+COPY local.ini /usr/local/etc/php/local.ini
 
-COPY ./docker/nginx.conf /etc/nginx/nginx.conf
+COPY nginx.conf /etc/nginx/nginx.conf
 
 
 
